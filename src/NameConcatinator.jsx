@@ -10,38 +10,34 @@ function NameConcatenator() {
   };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1>Full Name Concatenator</h1>
-      <div style={{ marginBottom: '10px' }}>
+    <div style={{ fontFamily: 'Arial, sans-serif' }}>
+      <h1>Full Name Display</h1>
+      <div>
         <label>
           First Name:
           <input
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            style={{ marginLeft: '10px', marginBottom: '10px', padding: '5px' }}
           />
         </label>
       </div>
-      <div style={{ marginBottom: '10px' }}>
+      <div >
         <label>
           Last Name:
           <input
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-            style={{ marginLeft: '10px', marginBottom: '10px', padding: '5px' }}
           />
         </label>
       </div>
       <button
         onClick={handleSubmit}
         style={{
-          padding: '8px 15px',
-          backgroundColor: '#007BFF',
-          color: 'white',
+          backgroundColor: 'grey',
           border: 'none',
-          borderRadius: '4px',
+          borderRadius: '2px',
           cursor: 'pointer',
         }}
       >
