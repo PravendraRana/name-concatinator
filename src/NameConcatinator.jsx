@@ -5,8 +5,9 @@ function NameConcatenator() {
   const [lastName, setLastName] = useState('');
   const [fullName, setFullName] = useState('');
 
-  const handleSubmit = () => {
-    if(firstName !== '' && lastName !== '') {
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent page reload
+    if (firstName !== '' && lastName !== '') {
       setFullName(`${firstName} ${lastName}`);
       setFirstName('');
       setLastName('');
@@ -16,39 +17,41 @@ function NameConcatenator() {
   return (
     <div>
       <h1>Full Name Display</h1>
-      <div>
-        <label>
-          First Name:
-          <input
-            type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-          />
-        </label>
-      </div>
-      <div >
-        <label>
-          Last Name:
-          <input
-            type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            required
-          />
-        </label>
-      </div>
-      <button
-        onClick={handleSubmit}
-        style={{
-          backgroundColor: 'grey',
-          border: 'none',
-          borderRadius: '2px',
-          cursor: 'pointer',
-        }}
-      >
-        Submit
-      </button>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>
+            First Name:
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Last Name:
+            <input
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <button
+          type="submit"
+          style={{
+            backgroundColor: 'grey',
+            border: 'none',
+            borderRadius: '2px',
+            cursor: 'pointer',
+          }}
+        >
+          Submit
+        </button>
+      </form>
       {fullName && (
         <p style={{ marginTop: '20px', fontSize: '18px' }}>
           <strong>Full Name:</strong> {fullName}
