@@ -6,11 +6,15 @@ function NameConcatenator() {
   const [fullName, setFullName] = useState('');
 
   const handleSubmit = () => {
-    setFullName(`${firstName} ${lastName}`);
+    if(firstName !== '' && lastName !== '') {
+      setFullName(`${firstName} ${lastName}`);
+      setFirstName('');
+      setLastName('');
+    }
   };
 
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif' }}>
+    <div>
       <h1>Full Name Display</h1>
       <div>
         <label>
@@ -19,6 +23,7 @@ function NameConcatenator() {
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
+            required
           />
         </label>
       </div>
@@ -29,6 +34,7 @@ function NameConcatenator() {
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
+            required
           />
         </label>
       </div>
